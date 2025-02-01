@@ -13,10 +13,9 @@ public class Pedido {
     private Long id;
     private String cliente;
 
-    @ElementCollection  // Permite almacenar una lista de elementos primitivos en JPA
+    @ElementCollection  
     private List<Long> productosIds = new ArrayList<>();
 
-    // Constructores
     public Pedido() {}
 
     public Pedido(String cliente, List<Long> productosIds) {
@@ -24,7 +23,6 @@ public class Pedido {
         this.productosIds = productosIds;
     }
 
-    // Getters y Setters
     public Long getId() {
         return id;
     }

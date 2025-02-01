@@ -8,12 +8,10 @@ import reactor.core.publisher.Mono;
 public class ProductoClient {
     private final WebClient webClient;
 
-    // Constructor para configurar la URL base del otro microservicio
     public ProductoClient(WebClient.Builder webClientBuilder) {
-        this.webClient = webClientBuilder.baseUrl("http://localhost:8081/productos").build();
+        this.webClient = webClientBuilder.baseUrl("http://localhost:8080/productos").build();
     }
 
-    // Método para obtener un producto por su ID
     public Mono<String> obtenerProducto(Long id) {
         return webClient.get()
                 .uri("/{id}", id)
